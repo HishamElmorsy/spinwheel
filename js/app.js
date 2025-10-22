@@ -4,10 +4,11 @@ const spinBtn=document.getElementById('spinBtn');
 const namesListEl=document.getElementById('namesList');
 const nameInput=document.getElementById('nameInput');
 const addBtn=document.getElementById('addBtn');
+const resetBtn=document.getElementById('resetBtn');
 const team1El=document.getElementById('team1List');
 const team2El=document.getElementById('team2List');
 
-let names=["Mshmsh","Spy","Borkano","Zuksh","3soom","Vmoor","Gondi","Frank"];
+let names=["Mshmsh","Spy","Borkano","Zuksh","3soom","Vmoor","Gondi","Frank","Santos"];
 let selected=Object.fromEntries(names.map(n=>[n,true]));
 let currentRotation=0; // radians
 let spinning=false;
@@ -179,6 +180,17 @@ addBtn.addEventListener('click',()=>{
 });
 nameInput.addEventListener('keydown',e=>{ if(e.key==='Enter'){ addBtn.click(); }});
 spinBtn.addEventListener('click',spin);
+
+function resetTeams(){
+  // move everyone from teams back to pool, mark selected and clear teams
+  const back=[...team1, ...team2];
+  back.forEach(n=>{ if(!names.includes(n)) { names.push(n); } selected[n]=true; });
+  team1.length=0; team2.length=0; teamTurn=1;
+  updateTeamsUI(); renderList(); drawWheel(currentRotation);
+  spinBtn.disabled = names.length===0 ? true : false;
+}
+
+if(resetBtn){ resetBtn.addEventListener('click', resetTeams); }
 
 drawWheel(0); renderList(); updateTeamsUI(); setupDnDTargets();
 if(!(names.length)) spinBtn.disabled=true;
