@@ -193,4 +193,15 @@ function resetTeams(){
 if(resetBtn){ resetBtn.addEventListener('click', resetTeams); }
 
 drawWheel(0); renderList(); updateTeamsUI(); setupDnDTargets();
+// redraw after webfont loads to avoid initial fallback font render
+try{
+  if(document.fonts && document.fonts.ready){
+    document.fonts.ready.then(()=>{ drawWheel(currentRotation); });
+    // try an explicit load to nudge rendering engines
+    document.fonts.load('600 24px Poppins').then(()=>{ drawWheel(currentRotation); });
+  } else {
+    // fallback: slight delay redraw
+    setTimeout(()=>drawWheel(currentRotation), 150);
+  }
+}catch{ /* noop */ }
 if(!(names.length)) spinBtn.disabled=true;
