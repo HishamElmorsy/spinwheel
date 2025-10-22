@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5aa2ff"/>
+      <stop offset="1" stop-color="#3b7cff"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="48" ry="48" fill="#0b1324"/>
+  <g transform="translate(128,128)">
+    <circle r="92" fill="#0e1730" stroke="rgba(255,255,255,0.2)" stroke-width="10"/>
+    <!-- segments -->
+    <g id="segments">
+      <path d="M0 0 L 0 -92 A 92 92 0 0 1 86.4 -34.6 Z" fill="#ff7675"/>
+      <path d="M0 0 L 86.4 -34.6 A 92 92 0 0 1 86.4 34.6 Z" fill="#ffeaa7"/>
+      <path d="M0 0 L 86.4 34.6 A 92 92 0 0 1 0 92 Z" fill="#55efc4"/>
+      <path d="M0 0 L 0 92 A 92 92 0 0 1 -86.4 34.6 Z" fill="#81ecec"/>
+      <path d="M0 0 L -86.4 34.6 A 92 92 0 0 1 -86.4 -34.6 Z" fill="#74b9ff"/>
+      <path d="M0 0 L -86.4 -34.6 A 92 92 0 0 1 0 -92 Z" fill="#a29bfe"/>
+    </g>
+    <circle r="14" fill="#e8ecf1"/>
+  </g>
+  <!-- pointer -->
+  <path d="M128 20 l12 24 h-24 z" fill="#e83e8c"/>
+  <!-- center button hint -->
+  <circle cx="128" cy="128" r="24" fill="url(#g)"/>
+</svg>
